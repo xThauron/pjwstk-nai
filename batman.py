@@ -15,16 +15,16 @@ h0 = 0
 while True:
     bomb_dir = input() 
 
-    if bomb_dir == "U" or bomb_dir == "UR" or bomb_dir == "UL":
+    if "U" in bomb_dir:
         h = y
         y = math.floor(y - ((y - h0) / 2))
-    if bomb_dir == "D" or bomb_dir == "DR" or bomb_dir == "DL":
+    if "D" in bomb_dir:
         h0 = y
         y = math.floor(y + ((h - y) / 2))
-    if bomb_dir == "L" or bomb_dir == "UL" or bomb_dir == "DL":
+    if "L" in bomb_dir:
         w = x
         x = math.floor(x - ((x - w0) / 2))
-    if bomb_dir == "R" or bomb_dir == "UR" or bomb_dir == "DR":
+    if "R" in bomb_dir:
         w0 = x
         x = math.floor(x + ((w - x) / 2))
     
