@@ -3,7 +3,7 @@ from easyAI import TwoPlayersGame
 from easyAI.Player import Human_Player
 
 
-class TicTacToe(TwoPlayersGame):
+class PTicTacToe(TwoPlayersGame):
     """
     TicTacToe console game with AI opponent based on TwoPlayersGame from EasyAI Python library
     """
@@ -209,5 +209,5 @@ class TicTacToe(TwoPlayersGame):
 if __name__ == "__main__":
     from easyAI import AI_Player, Negamax
     ai_algo = Negamax(6)
-    TicTacToe([Human_Player(), AI_Player(ai_algo)]).play()
+    PTicTacToe([Human_Player(), AI_Player(ai_algo)]).play()
 
