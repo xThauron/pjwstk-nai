@@ -1,3 +1,25 @@
+# # pTic-pTac-pToc
+# ## Instalation
+# 1. Install Python (recommended min. 3.8)
+# 2. Install EasyAI:
+# pip3 install easyAI
+# or
+# pip install easyAI
+# ## Run
+# python3 pticptacptoc.py
+# or
+# python pticptacptoc.py
+# ## Rules of the game
+# ENG:
+# [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
+# PL:
+# [Kółko i krzyżyk](https://pl.wikipedia.org/wiki/K%C3%B3%C5%82ko_i_krzy%C5%BCyk)
+# You start 😃
+
+# ## About & Creators
+# -   Jakub Pilachowski s17999
+# -   Michał Ptok s16665
+
 from easyAI import AI_Player, Negamax
 from easyAI import TwoPlayersGame
 from easyAI.Player import Human_Player
@@ -6,6 +28,7 @@ from easyAI.Player import Human_Player
 class PticPtacPtoc(TwoPlayersGame):
     """
     TicTacToe console game with AI opponent based on TwoPlayersGame from EasyAI Python library
+    
     """
 
     def __init__(self, players):
