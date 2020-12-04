@@ -3,7 +3,7 @@
 ## Instalation
 
 1. Install Python (recommended min. 3.9)
-2. Install EasyAI:
+2. Install libs:
 
 ```text
 pip3 install scikit-fuzzy==0.4.2
@@ -28,6 +28,10 @@ or
 ```text
 python student_evaluation.py
 ```
+
+## Description
+
+StudentEvaluation can predict how much you can potentially get from your coop candidate based on amout of memes sent to you by your coop candidate, score of last coop project of your coop candidate and hours a week that your coop candidate can dedicate to studying.
 
 ## About & Creators
 
