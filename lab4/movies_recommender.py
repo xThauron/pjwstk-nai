@@ -200,7 +200,7 @@ class MovieAndTVShowRecommender:
             if dataset[user][item] < 6:
                 negative_movies.append((item, dataset[user][item]))
 
-        negative_movies.sort(key=takeSecond, reverse=True)
+        negative_movies.sort(key=takeSecond)
 
         return negative_movies
 
