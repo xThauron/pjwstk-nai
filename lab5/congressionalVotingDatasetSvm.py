@@ -1,3 +1,45 @@
+# # SeedsDatasetSvm & CongressionalVotingDatasetSvm
+
+# ## Instalation
+
+# 1. Install Python (recommended min. 3.9)
+# 2. Install libs:
+
+# ```text
+# pip3 install numpy
+# pip3 install sklearn
+# ```
+
+# or
+
+# ```text
+# pip install numpy
+# pip install sklearn
+# ```
+
+# ## Run
+
+# ```text
+# python3 svm.py
+# ```
+
+# or
+
+# ```text
+# python svm.py
+# ```
+
+# ## Description
+
+# Program predicts result based on SVM dataset and user input.
+# There are two dataset that program can works with:
+# [Wheat Seeds Dataset](https://machinelearningmastery.com/standard-machine-learning-datasets/) & [Congressional Voting Dataset](https://www.mldata.io/dataset-details/congressional_voting/).
+
+# ## Creators
+
+# - Jakub Pilachowski s17999
+# - Michał Ptok s16665
+
 import numpy as np
 import csv
 from sklearn.model_selection import train_test_split
@@ -5,6 +47,16 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import OneHotEncoder
 
 def convertToFloat(vote):
+    """
+    Converts inputed data to match dataset notation data.
+
+    Parameters:
+    vote (str)
+        representation of user's vote in form of "y", "n" or "?"
+
+    Returns:
+    converted str vote to the float
+    """
     if vote == 'y':
         return 1
     if vote == 'n':
@@ -12,11 +64,18 @@ def convertToFloat(vote):
     if vote == '?':
         return 0
 
-class CongressionalVotingDatasetSvn:
+class CongressionalVotingDatasetSvm:
     def __init__(self):
+        """
+        Initialize class and svclassifier with linear kernel.
+        """
         self.svclassifier = SVC(kernel='linear')
-    
+
     def getInput(self):
+        """
+        Gets inputs from user and saves its to the respective variables
+        that are collected in array.
+        """
         print('You will be asked to vote on 16 subjects refered by titles.')
         handicapped_infants = convertToFloat(str(input('Handicapped infants protection act  - Vote by typing "y" or "n" or "?": ')))
         water_project_cost_sharing = convertToFloat(str(input('Water_project_cost_sharing  - Vote by typing "y" or "n" or "?": ')))
@@ -36,8 +95,12 @@ class CongressionalVotingDatasetSvn:
         export_administration_act_south_africa = convertToFloat(str(input('Export administration act south africa - Vote by typing "y" or "n" or "?": ')))
 
         self.inputData = np.array([handicapped_infants,water_project_cost_sharing,adoption_of_the_budget_resolution,physician_fee_freeze,el_salvador_aid,religious_groups_in_schools,anti_satellite_test_ban,aid_to_nicaraguan_contras,mx_missile,immigration,synfuels_corporation_cutback,education_spending,superfund_right_to_sue,crime,duty_free_exports,export_administration_act_south_africa])
-    
+
     def trainAndCalculate(self):
+        """
+        Takes dataset from file and prepares before
+        passing them to the fit method to train algorithm
+        """
         f = open("congressional_voting_dataset.csv")
         data = np.genfromtxt(fname = f, delimiter=',', dtype=str, encoding=None)
         X = data[:, :-1]
@@ -46,5 +109,11 @@ class CongressionalVotingDatasetSvn:
         self.svclassifier.fit(X_train, y_train)
 
     def getPredictedResult(self):
+        """
+        Prepares classified output based on inputData before printing.
+
+        Returns
+        (str) first value of output array
+        """
         output = self.svclassifier.predict([self.inputData])
-        return output
+        return output[0]
